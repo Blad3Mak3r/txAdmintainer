@@ -1,5 +1,6 @@
 FROM alpine:latest AS base
 
+RUN apk update --no-cache && apk upgrade --no-cache
 RUN apk --no-cache add libgcc libstdc++ ca-certificates npm tzdata 
 RUN npm i -g fvm-installer
 
