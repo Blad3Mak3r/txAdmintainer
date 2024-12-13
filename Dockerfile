@@ -19,6 +19,10 @@ FROM base AS runtime
 
 COPY --from=downloader /opt/fivem /opt/fivem/
 
+RUN addgroup -g 1000 -S cfx && adduser -u 1000 -S cfx -G cfx
+RUN mkdir /opt/fivem/txData && chown cfx:cfx /opt/fivem/txData
+
+USER cfx
 # Data folder
 VOLUME /opt/fivem/txData
 
