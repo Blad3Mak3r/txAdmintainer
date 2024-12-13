@@ -1,5 +1,7 @@
 FROM alpine:latest AS base
 
+LABEL org.opencontainers.image.source=https://github.com/Blad3Mak3r/txAdmintainer
+
 RUN apk update --no-cache && apk upgrade --no-cache
 RUN apk --no-cache add libgcc libstdc++ ca-certificates npm tzdata 
 RUN npm i -g fvm-installer
