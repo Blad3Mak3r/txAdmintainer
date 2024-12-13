@@ -22,4 +22,6 @@ COPY --from=downloader /opt/fivem /opt/fivem/
 # Data folder
 VOLUME /opt/fivem/txData
 
-CMD ["sh", "./run.sh"]
+EXPOSE 30120/tcp 30120/udp 40120/tcp
+
+CMD ["sh", "/opt/fivem/run.sh"]
