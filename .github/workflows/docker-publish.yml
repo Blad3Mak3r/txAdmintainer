@@ -6,10 +6,9 @@ name: Docker
 # documentation.
 
 on:
-  push:
-    # Publish semver tags as releases.
-    tags: [ '*' ]
-
+  push: 
+    branches: ['main']
+    
 env:
   # Use docker.io for Docker Hub if empty
   REGISTRY: ghcr.io
