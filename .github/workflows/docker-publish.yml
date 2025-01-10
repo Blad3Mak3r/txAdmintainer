@@ -8,10 +8,10 @@ name: Docker
 on:
   workflow_dispatch: 
     inputs:
-      version:
+      artifact_version:
         description: CFX Artifact Version
         required: true
-      hash:
+      artifact_hash:
         description: CFX Artifact Hash
         required: true
     
@@ -76,13 +76,13 @@ jobs:
         uses: docker/build-push-action@0565240e2d4ab88bba5387d719585280857ece09 # v5.0.0
         with:
           context: .
-          tags: blad3mak3r/txadmintainer:latest,blad3mak3r/txadmintainer:${{ github.event.inputs.version }}
+          tags: blad3mak3r/txadmintainer:latest,blad3mak3r/txadmintainer:${{ github.event.inputs.artifact_version }}
           labels: ${{ steps.meta.outputs.labels }}
           cache-from: type=gha
           cache-to: type=gha,mode=max
           secrets: |
-            ARTIFACT_VERSION=${{ github.event.inputs.version }}
-            ARTIFACT_HASH=${{ github.event.inputs.hash }}
+            ARTIFACT_VERSION=${{ github.event.inputs.artifact_version }}
+            ARTIFACT_HASH=${{ github.event.inputs.artifact_hash }}
 
       # Sign the resulting Docker image digest except on PRs.
       # This will only write to the public Rekor transparency log when the Docker
