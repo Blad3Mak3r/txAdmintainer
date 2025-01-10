@@ -80,7 +80,7 @@ jobs:
           labels: ${{ steps.meta.outputs.labels }}
           cache-from: type=gha
           cache-to: type=gha,mode=max
-          secrets: |
+          build-args: |
             ARTIFACT_VERSION=${{ github.event.inputs.artifact_version }}
             ARTIFACT_HASH=${{ github.event.inputs.artifact_hash }}
 
