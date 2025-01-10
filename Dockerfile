@@ -6,8 +6,9 @@ RUN apk update --no-cache && apk upgrade --no-cache
 RUN apk --no-cache add libgcc libstdc++ ca-certificates npm tzdata 
 RUN npm i -g fvm-installer
 
-ARG VERSION=12031-1baa5c805bb6d2947321f1e82fa3aec8836b20b1
-ARG DOWNLOAD_URL=https://runtime.fivem.net/artifacts/fivem/build_proot_linux/master/${VERSION}/fx.tar.xz
+ENV ARTIFACT_VERSION=12255
+ENV ARTIFACT_HASH=1baa5c805bb6d2947321f1e82fa3aec8836b20b1
+ARG DOWNLOAD_URL=https://runtime.fivem.net/artifacts/fivem/build_proot_linux/master/${ARTIFACT_VERSION}-${ARTIFACT_HASH}/fx.tar.xz
 
 FROM base AS downloader
 
