@@ -85,7 +85,7 @@ jobs:
           cache-from: type=gha
           cache-to: type=gha,mode=max
           build-args: |
-            ARTIFACT_VERSION=artifact_hash
+            ARTIFACT_VERSION=${{ github.event.inputs.artifact_version }}
             ARTIFACT_HASH=${{ github.event.inputs.artifact_hash }}
 
       # Sign the resulting Docker image digest except on PRs.
