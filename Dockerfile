@@ -14,6 +14,7 @@ FROM base AS downloader
 
 # Install FiveM Release
 RUN mkdir /tmp/fivem
+RUN echo "Downloading ${DOWNLOAD_URL}"
 RUN wget -O- ${DOWNLOAD_URL} | tar -xJ -C /tmp/fivem
 
 FROM base AS runtime
